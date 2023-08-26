@@ -17,6 +17,7 @@ Vous pouvez ensuite lancer votre image.
 # Changelogs
 ## novalife1.57.1-1.1.0
 - Ajout du gracefull shutdown
+- Ajout du répertoire git avec le build automatique
 
 ## novalife1.57.1-1.0.0
 - Mise à jour du serveur vers la version 1.57.1 de Nova-Life
