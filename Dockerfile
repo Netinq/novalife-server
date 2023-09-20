@@ -1,4 +1,4 @@
-FROM debian:11-slim
+FROM debian:11.7-slim
 
 ENV SERVER_NAME="Votre Serveur"
 
