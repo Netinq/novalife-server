@@ -15,7 +15,7 @@ Dans le dossier `SERVER_NAME`, déposez les fichiers `life.db` et `config.json`.
 Vous pouvez ensuite lancer votre image.
 
 # Changelogs
-## novalife1.57.5-1.1.0
+## novalife1.57.5-1.2.0
 - Mise à jour du serveur vers la version 1.57.5 de Nova-Life
 - Mise à jour de la version debian vers la 11.7-slim (CVEC)
 
