@@ -1,9 +1,8 @@
 name: CI
 on:
   push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+    tags:
+      - "*"
   workflow_dispatch:
 jobs:
   Push_To_Docker:
@@ -20,18 +19,17 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push
+      - name: Build and push tag
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/novalife-server:${{  github.ref_name }}
+      - name: Build and push latest
         uses: docker/build-push-action@v2
         with:
           context: ./
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/novalife-server:latest
-      - name: Run the image in a container
-        uses: addnab/docker-run-action@v3
-        with:
-          image: ${{ secrets.DOCKERHUB_USERNAME }}/novalife-server:latest
-          run: |
-            echo "runing the docker image"
-            echo "Testing the nodejs  app endpoints"
-            echo ${{ steps.docker_build.outputs.digest }}
