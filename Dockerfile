@@ -9,6 +9,7 @@ RUN apt-get install -y lib32gcc-s1 \
   wget
 
 ADD novalife-server /usr/local/bin/
+RUN chmod +x /usr/local/bin/novalife-server
 
 RUN useradd -m steamuser
 USER steamuser
